@@ -78,7 +78,16 @@ def summarize_article(title, content):
     3. **总结**：对这篇文章进行简要总结
 
 
+    示例：
+    ```
+    ## 一、{title}
 
+    ## 二、摘要：
+    
+    ## 三、解读：
+    
+    ## 四、总结：
+    ```
     """
 
     try:
