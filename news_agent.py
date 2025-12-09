@@ -10,14 +10,14 @@ from openai import OpenAI
 
 # 1. 初始化设置
 load_dotenv()
-api_key = os.getenv("DEEPSEEK_API_KEY")
+api_key = os.getenv("MODELSCOPE_ACESS_TOKEN")
 pushplus_token = os.getenv("PUSHPLUS_TOKEN")
 
 # --- 网络配置 ---
 http_client = httpx.Client(trust_env=False)
 client = OpenAI(
     api_key=api_key, 
-    base_url="https://api.deepseek.com",
+    base_url="https://api-inference.modelscope.cn/v1/",
     http_client=http_client
 )
 
@@ -67,19 +67,19 @@ def summarize_article(title, content):
     print(f"[思考] 正在总结: {title} ...")
     
     prompt = f"""
-    请为 Hacker News 的热门文章撰写微型简报。
+    请为 Hacker News 的热门文章撰写每日解读。
     标题: {title}
-    内容: {content[:6000]} 
+    内容: {content[:8000]} 
     
     请输出 Markdown 格式，包含：
-    1. **一句话核心**：它是什么？
-    2. **关键点**：3个以内的技术要点或观点。
-    (保持简洁，不要废话，不要使用任何表情符号)
+    1. **摘要**
+    2. **解读**：对这篇文章的解读
+
     """
 
     try:
         response = client.chat.completions.create(
-            model="deepseek-chat",
+            model="deepseek-ai/DeepSeek-V3.2",
             messages=[{"role": "user", "content": prompt}],
             stream=False
         )
