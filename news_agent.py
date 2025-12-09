@@ -10,7 +10,7 @@ from openai import OpenAI
 
 # 1. 初始化设置
 load_dotenv()
-api_key = os.getenv("MODELSCOPE_ACESS_TOKEN")
+api_key = os.getenv("MODELSCOPE_ACCESS_TOKEN")
 pushplus_token = os.getenv("PUSHPLUS_TOKEN")
 
 # --- 网络配置 ---
