@@ -79,7 +79,7 @@ def summarize_article(title, content):
 
 
     示例：
-    ```
+    
     ## 一、{title}
 
     ## 二、摘要：
@@ -87,7 +87,7 @@ def summarize_article(title, content):
     ## 三、解读：
     
     ## 四、总结：
-    ```
+    
     """
 
     try:
