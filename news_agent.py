@@ -71,8 +71,8 @@ def summarize_article(title, content):
 
     标题: {title}
 
-    内容: {content[:8000]} 
-    
+    内容: {content[:6000]} 
+
     格式：
     1. **摘要**
     2. **解读**：对这篇文章的简要解读
@@ -81,7 +81,7 @@ def summarize_article(title, content):
 
     try:
         response = client.chat.completions.create(
-            model="deepseek-ai/DeepSeek-V3.2",
+            model="Qwen/Qwen3-Coder-480B-A35B-Instruct",
             messages=[{"role": "user", "content": prompt}],
             stream=False
         )
