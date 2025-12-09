@@ -68,12 +68,14 @@ def summarize_article(title, content):
     
     prompt = f"""
     请为 Hacker News 的热门文章撰写每日解读。
+
     标题: {title}
+
     内容: {content[:8000]} 
     
-    请输出 Markdown 格式，包含：
+    格式：
     1. **摘要**
-    2. **解读**：对这篇文章的解读
+    2. **解读**：对这篇文章的简要解读
 
     """
 
