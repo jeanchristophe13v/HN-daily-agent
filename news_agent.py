@@ -73,15 +73,17 @@ def summarize_article(title, content):
 
     内容: {content[:6000]} 
 
-    格式：
-    1. **摘要**
-    2. **解读**：对这篇文章的简要解读
+    1. **摘要**：对文章进行简要摘要
+    2. **解读**：对这篇文章进行简要解读
+    3. **总结**：对这篇文章进行简要总结
+
+
 
     """
 
     try:
         response = client.chat.completions.create(
-            model="Qwen/Qwen3-Coder-480B-A35B-Instruct",
+            model="deepseek-ai/DeepSeek-V3.2",
             messages=[{"role": "user", "content": prompt}],
             stream=False
         )
